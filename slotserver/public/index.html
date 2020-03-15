@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-content>
+                <v-app-bar dense color="secondary" class="title">
+                    <span class="white--text">
+                        SlotTest Dashboard
+                    </span>
+                </v-app-bar>
+                <v-container class="mt-5" fluid>
+                    <v-layout row wrap justify-center align-center class="mb-5">
+                        <v-card width=700 class="ma-3">
+                            <v-toolbar dense flat color="info">
+                                <v-layout justify-center align-center>
+                                    <span class="subheading white--text text-xs-center">Equal lines in a roll</span>
+                                </v-layout>
+                            </v-toolbar>
+                            <v-layout column align-center justify-center class="pa-5">
+                                <canvas v-show="!loading && equalLinesChart != null" id="equalLines" width="500" height="400"></canvas>
+                                <span v-if="equalLinesTotal > 0" class="caption grey--text pt-5 pb-2">Total: {{ equalLinesTotal }}</span>
+                                <v-progress-circular v-if="loading" size=100 width=15 color="info" indeterminate></v-progress-circular> 
+                                <span v-else-if="equalLinesChart == null" class="display-1 grey--text">No data to display</span>
+                            </v-layout>
+                        </v-card>
+
+                        <v-card width=700  class="ma-3">
+                            <v-toolbar dense flat color="info">
+                                <v-layout justify-center align-center>
+                                    <span class="subheading white--text text-xs-center">Animal frequency</span>
+                                </v-layout>
+                            </v-toolbar>
+                            <v-layout column align-center justify-center class="pa-5">
+                                <canvas v-show="!loading && animalsChart != null" id="animals" width="500" height="400"></canvas>
+                                <span v-if="animalsTotal > 0" class="caption grey--text pt-5 pb-2">Total: {{ animalsTotal }}</span>
+                                <v-progress-circular v-if="loading" size=100 width=15 color="info" indeterminate></v-progress-circular>
+                                <span v-else-if="animalsChart == null" class="display-1 grey--text">No data to display</span>
+                            </v-layout>
+                        </v-card>
+                    </v-layout>
+                </v-container>
+            </v-content>
+            <v-btn fixed bottom right fab color="info" @click="fetchDataFromServer">
+                <v-icon>mdi-refresh</v-icon>
+            </v-btn>
+        </v-app>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="log2.js"></script>
+    <script src="graphStyle.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
