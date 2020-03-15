@@ -14,3 +14,5 @@ Features:
    - Stores users' results and provides data visualization at a web dashboard.
 
 > This project is my solution to a job application test.
+
+The **client** side is also available [:slot_machine: **HERE**](https://github.com/FlavioFS/slot-test-client).
