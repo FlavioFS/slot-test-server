@@ -1,8 +1,16 @@
 # :slot_machine: SlotTest Server
 
+# [:arrow_forward: Live demo here](https://slot-test-server2.firebaseapp.com/)
+<a href="https://slot-test-server2.firebaseapp.com/" target="_blank">
+  <img src="https://i.postimg.cc/cHZzcfPV/slotserverdemo.gif" alt="Preview image failed to load">
+</a>
+
 ## Description
-Server side for a simple slot machine game. Features:
+Server side for a simple slot machine game.
+
+Features:
  - REST API
- - Analytics services (stores users' results and provides them to a dashboard client).
+ - Game analytics  
+   - Stores users' results and provides data visualization at a web dashboard.
 
 > This project is my solution to a job application test.
